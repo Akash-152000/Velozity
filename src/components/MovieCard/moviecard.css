@@ -1,0 +1,11 @@
+.movie-card{
+    background: white;
+    color: black;
+    width:200px;
+    margin: 10px;
+}
+
+.movie-details{
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,20 @@
+.movies{
+    background: #05161a;
+    color: white;
+}
+
+.movie-list{
+    display: flex;
+    overflow: scroll;
+    margin-top: 50px;
+}
+
+.movie-list::-webkit-scrollbar{
+    display: none;
+}
+
+.movie-message{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
