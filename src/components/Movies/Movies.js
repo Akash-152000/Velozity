@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import fetchMoviesContext from "../../context/FetchMovies/fetchMoviesContext";
+import fetchFavContext from "../../context/FetchFavorites/fetchFavContext";
 import "./movies.css";
 import MovieCard from "../MovieCard/MovieCard";
 
@@ -8,11 +9,14 @@ const Movies = () => {
   const context = useContext(fetchMoviesContext);
   const { movies,loading } = context;
 
+  const favContext = useContext(fetchFavContext);
+    const { fav,getFav,addFav,removeFav } = favContext;
 
+  useEffect(()=>{
+    getFav()
+})
   return (
     <div className="movies">
-        {console.log(loading,movies)}
-        {console.log("data",movies)}
       {loading ? (
         <div className="movie-list">
           {movies.data.Response==='True'?movies.data.Search.map((ele,id) => {
@@ -22,6 +26,7 @@ const Movies = () => {
                   poster={ele.Poster}
                   title={ele.Title}
                   year={ele.Year}
+                  id = {ele.imdbID}
                 />
               </div>
             );

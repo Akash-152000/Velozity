@@ -9,9 +9,17 @@ const FetchMoviesState = (props) =>{
     const [loading,setLoading] = useState(false)
 
 
-    const searchMovie =(searchQuery) =>{
-        axios.get(
-            `http://www.omdbapi.com/?apikey=a5de3980&s=${searchQuery}`
+    const searchMovie = async (searchQuery) =>{
+        const response = await axios.post(
+            'http://localhost:5001/api/movies/search',
+            {
+                search: searchQuery
+            },
+            {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+            }
         )
         .then((response)=>{
             const data = response.data;
@@ -19,7 +27,7 @@ const FetchMoviesState = (props) =>{
             setLoading(true)
         })
         .catch((error)=>{
-            console.error("Error fetching data:", error);
+            console.error("Error fetching data:", error.response.data);
         })
     }
 
