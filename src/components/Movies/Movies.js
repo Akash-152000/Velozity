@@ -15,9 +15,9 @@ const Movies = () => {
         {console.log("data",movies)}
       {loading ? (
         <div className="movie-list">
-          {movies.data.Response==='True'?movies.data.Search.map((ele) => {
+          {movies.data.Response==='True'?movies.data.Search.map((ele,id) => {
             return (
-              <div className="movie-list-child">
+              <div className="movie-list-child" key={id}>
                 <MovieCard
                   poster={ele.Poster}
                   title={ele.Title}

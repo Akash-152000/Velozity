@@ -6,10 +6,12 @@ const MovieCard = ({poster,title,year}) => {
     <div className='movie-card'>
         <img src={poster} alt={title} width={200} height={300} />
         <div className="movie-details">
-            <p>{title}</p>
+            <p><b>{title}</b></p>
             <p>{year}</p>
         </div>
-        <div className='heart-icon'></div>
+        <div className='heart-icon'>
+            <i className="fa-regular fa-heart fa-xl"></i>
+        </div>
         
     </div>
   )
