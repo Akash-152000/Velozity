@@ -24,6 +24,10 @@ const MovieCard = ({ poster, title, year, id }) => {
         </p>
         <p>{year}</p>
       </div>
+
+{/* fav is array from context which stores imdbId of the favoorite movies */}
+{/* if the Current Id is present in fav array then make icon regular from solid */}
+
       {fav&&fav.includes(id) ? (
         <div className="heart-icon">
           <i className="fa-solid fa-heart fa-xl" onClick={handleRemove}></i>

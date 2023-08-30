@@ -8,7 +8,7 @@ const FetchFavState = (props) =>{
     const [fav,setFav] = useState()
 
     const getFav=async ()=>{
-        const response = await axios.get('http://localhost:5001/api/favorites/favmovies')
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API}api/favorites/favmovies`)
         .then((response) => {
             // const data = response.json;
             setFav(response.data.favoriteMovies)
@@ -22,7 +22,7 @@ const FetchFavState = (props) =>{
 
 
     const addFav = async(id)=>{
-        const response = await axios.post('http://localhost:5001/api/favorites/addfav',{
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}api/favorites/addfav`,{
             movieId:id
         })
         .then((response) => {
@@ -36,7 +36,7 @@ const FetchFavState = (props) =>{
     }
 
     const removeFav = async(id)=>{
-        const response = await axios.delete(`http://localhost:5001/api/favorites/removefav/${id}`)
+        const response = await axios.delete(`${process.env.REACT_APP_BACKEND_API}api/favorites/removefav/${id}`)
         .then((response) => {
             // const data = response.json;
             console.log(response);

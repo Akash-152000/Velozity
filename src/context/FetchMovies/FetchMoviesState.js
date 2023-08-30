@@ -11,7 +11,7 @@ const FetchMoviesState = (props) =>{
 
     const searchMovie = async (searchQuery) =>{
         const response = await axios.post(
-            'http://localhost:5001/api/movies/search',
+            `${process.env.REACT_APP_BACKEND_API}api/movies/search`,
             {
                 search: searchQuery
             },
